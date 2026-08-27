@@ -1,587 +1,246 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arnold J Gomes — Creative Developer</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=DM+Mono:wght@300;400;500&family=Cabinet+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arnold J Gomes | Developer Portfolio</title>
+  <meta name="description"
+    content="Arnold J Gomes — Information Science Engineer & Fullstack Web Developer. Explore projects, skills and ways to connect.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- ░░ LOADER ░░ -->
-  <div id="loader" aria-hidden="true">
-    <div class="loader-inner">
-      <span class="loader-word" data-text="LOADING">LOADING</span>
-      <div class="loader-bar"><div class="loader-fill"></div></div>
-      <span class="loader-pct">0%</span>
-    </div>
-  </div>
+  <header>
+    <nav>
+      <a href="#home" class="left">Arnold&nbsp;<span class="purple">.</span></a>
 
-  <!-- ░░ CURSOR ░░ -->
-  <div id="cursor-dot" aria-hidden="true"></div>
-  <div id="cursor-ring" aria-hidden="true"></div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-  <!-- ░░ SCROLL PROGRESS ░░ -->
-  <div id="scroll-progress" aria-hidden="true"></div>
-
-  <!-- ░░ NAVIGATION ░░ -->
-  <nav id="navbar" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="Home">
-        <span class="logo-bracket">[</span>AG<span class="logo-bracket">]</span>
-      </a>
-      <ul class="nav-links" role="list">
-        <li><a href="#about" class="nav-link" data-num="01">About</a></li>
-        <li><a href="#skills" class="nav-link" data-num="02">Skills</a></li>
-        <li><a href="#projects" class="nav-link" data-num="03">Projects</a></li>
-        <li><a href="#experience" class="nav-link" data-num="04">Experience</a></li>
-        <li><a href="#contact" class="nav-link" data-num="05">Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
-          <span class="theme-icon theme-dark">◐</span>
-          <span class="theme-icon theme-light">◑</span>
-        </button>
-        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+      <div class="right" id="navMenu">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact" class="nav-cta">Contact me</a></li>
+        </ul>
       </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <ul role="list">
-      <li><a href="#about" class="mob-link">About</a></li>
-      <li><a href="#skills" class="mob-link">Skills</a></li>
-      <li><a href="#projects" class="mob-link">Projects</a></li>
-      <li><a href="#experience" class="mob-link">Experience</a></li>
-      <li><a href="#contact" class="mob-link">Contact</a></li>
-    </ul>
-  </div>
+    </nav>
+  </header>
 
   <main>
 
-    <!-- ░░ HERO ░░ -->
-    <section id="hero" class="hero" aria-label="Hero section">
-      <div class="hero-bg">
-        <canvas id="hero-canvas" aria-hidden="true"></canvas>
-        <div class="hero-grid" aria-hidden="true"></div>
-      </div>
-      <div class="hero-content">
-        <p class="hero-eyebrow reveal-up">
-          <span class="eyebrow-dot"></span>Available for work
-        </p>
-        <h1 class="hero-name reveal-up">
-          <span class="name-line">Arnold J</span>
-          <span class="name-line italic">Gomes</span>
-        </h1>
-        <div class="hero-title reveal-up">
-          <span class="title-prefix">— </span>
-          <span id="typed-title"></span>
-          <span class="cursor-blink">|</span>
-        </div>
-        <p class="hero-desc reveal-up">
-          Crafting digital experiences where precision meets imagination.<br />
-          Full-stack developer, UI/UX obsessive, and trying to become an open-source contributor.
-        </p>
-        <div class="hero-cta reveal-up">
-          <a href="#projects" class="btn btn-primary">View Work</a>
-          <a href="#contact" class="btn btn-ghost">Let's Talk</a>
-        </div>
-        <div class="hero-stats reveal-up">
-          <div class="stat">
-            <span class="stat-num" data-target="2">0</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-num" data-target="1">0</span>
-            <span class="stat-label">Years Exp.</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-num" data-target="2">0</span>
-            <span class="stat-label">Clients</span>
-          </div>
+    <!-- Hero -->
+    <section class="firstsection" id="home">
+      <div class="leftsection">
+        <p class="eyebrow">Welcome, I'm</p>
+        <h1>Hi, my name is <span class="purple">Arnold</span></h1>
+        <div class="typed-line">I am a passionate <span id="element"></span></div>
+        <p class="hero-sub">I design and build clean, fast, user-friendly web experiences from front to back.</p>
+        <div class="buttons">
+          <a href="resume.png" download class="btn btn-primary">Download Resume</a>
+          <a href="#contact" class="btn btn-ghost">Let's talk</a>
         </div>
       </div>
-      <div class="hero-scroll-hint" aria-hidden="true">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
+      <div class="rightsection">
+        <div class="hero-image-wrap">
+          <img src="img.avif" alt="Illustration of Arnold, a developer, working at a desk">
+        </div>
       </div>
     </section>
 
-    <!-- ░░ ABOUT ░░ -->
-    <section id="about" class="about section" aria-label="About section">
-      <div class="container">
-        <div class="section-header reveal-up">
-          <span class="section-tag">// 01</span>
-          <h2 class="section-title">About Me</h2>
-        </div>
-        <div class="about-grid">
-          <div class="about-text reveal-left">
-            <p class="about-lead">
-              I'm a <em>creative developer</em> pursuing opportunities in various fields, turning complex problems into elegant digital products.
-            </p>
-            <p>
-              With a background spanning front-end architecture, motion design, and backend systems, I bridge the gap between engineering and artistry. I believe the best interfaces are the ones that disappear — leaving only the experience.
-            </p>
-            <p>
-              When not shipping code, you'll find me contributing to open-source, writing about design systems, or experimenting with generative art.
-            </p>
-            <div class="about-tags">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">Python</span>
-              <span class="tag">C Programming</span>
-              <span class="tag">C++</span>
-              <span class="tag">JavaScript</span>
-            </div>
+    <hr>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <span class="text-grey">get to know me</span>
+      <h2>About me</h2>
+      <p class="about-text">
+        I'm an Information Science engineer and fullstack web developer who enjoys turning ideas into
+        working products. I care about clean code, thoughtful design and building things that people
+        actually enjoy using — from the database up to the pixel on screen.
+      </p>
+    </section>
+
+    <hr>
+
+    <!-- Skills / Experience -->
+    <section class="secondsection" id="skills">
+      <span class="text-grey">what i have done so far</span>
+      <h2>Past experience</h2>
+      <div class="box">
+        <div class="card">
+          <img class="image-top" src="developer.png" alt="">
+          <div class="vertical-title">Fullstack Web Developer</div>
+          <div class="vertical-desc">
+            Building fullstack web applications end-to-end using modern frameworks, REST APIs
+            and databases.
           </div>
-          <div class="about-visual reveal-right">
-            <div class="about-card-wrap">
-              <div class="about-img-card">
-                <div class="about-img-placeholder">
-                  <div class="avatar-initials">AM</div>
-                  <div class="avatar-ring"></div>
-                  <div class="avatar-ring ring-2"></div>
-                </div>
-                <div class="about-card-badge">
-                  <span class="badge-dot"></span>
-                  Open to opportunities
-                </div>
-              </div>
-              <div class="about-info-card glass">
-                <div class="info-row">
-                  <span class="info-label">Location</span>
-                  <span class="info-val">mangalore, bantwal</span>
-                </div>
-                <div class="info-row">
-                  <span class="info-label">Focus</span>
-                  <span class="info-val">Full-Stack & UX</span>
-                </div>
-                <div class="info-row">
-                  <span class="info-label">Stack</span>
-                  <span class="info-val">MERN + Next.js</span>
-                </div>
-              </div>
-            </div>
+        </div>
+
+        <div class="card">
+          <img class="image-top" src="developer.png" alt="">
+          <div class="vertical-title">Frontend Development</div>
+          <div class="vertical-desc">
+            Crafting responsive, accessible interfaces with HTML, CSS and JavaScript that work
+            well on every screen size.
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="image-top" src="developer.png" alt="">
+          <div class="vertical-title">Backend & APIs</div>
+          <div class="vertical-desc">
+            Designing server-side logic, REST APIs and database schemas that are reliable and
+            easy to maintain.
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="image-top" src="developer.png" alt="">
+          <div class="vertical-title">Collaboration</div>
+          <div class="vertical-desc">
+            Working with teams using Git workflows, code reviews and clear communication to ship
+            on time.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ░░ SKILLS ░░ -->
-    <section id="skills" class="skills section" aria-label="Skills section">
-      <div class="container">
-        <div class="section-header reveal-up">
-          <span class="section-tag">// 02</span>
-          <h2 class="section-title">Skills</h2>
-        </div>
-        <div class="skills-layout">
-          <div class="skills-bars reveal-left">
-            <h3 class="skills-subtitle">Technical Proficiency</h3>
-            <div class="skill-item">
-              <div class="skill-meta"><span>JavaScript / TypeScript</span><span class="skill-pct">5%</span></div>
-              <div class="skill-track"><div class="skill-bar" data-width="5"></div></div>
-            </div>
-            <!-- <div class="skill-item">
-              <div class="skill-meta"><span>React / Next.js</span><span class="skill-pct">92%</span></div>
-              <div class="skill-track"><div class="skill-bar" data-width="92"></div></div>
-            </div> -->
-            <div class="skill-item">
-              <div class="skill-meta"><span>Node.js / Express</span><span class="skill-pct">30%</span></div>
-              <div class="skill-track"><div class="skill-bar" data-width="30"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta"><span>CSS / Animation</span><span class="skill-pct">40%</span></div>
-              <div class="skill-track"><div class="skill-bar" data-width="40"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta"><span>Python / Django</span><span class="skill-pct">78%</span></div>
-              <div class="skill-track"><div class="skill-bar" data-width="78"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-meta"><span>C programming</span><span class="skill-pct">72%</span></div>
-              <div class="skill-track"><div class="skill-bar" data-width="72"></div></div>
-            </div>
+    <hr>
+
+    <!-- Projects -->
+    <section class="projects" id="projects">
+      <span class="text-grey">a few things i've built</span>
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <h3>Project One</h3>
+          <p>My Portfolio — Arnold J Gomes
+
+            A single-page, responsive developer portfolio.It is made using HTML, CSS, and JavaScript.</p>
+          <div class="project-links">
+            <a href="https://arnoldgomes207-ui.github.io/my-portfolio/" target="_blank" rel="noopener">Live demo</a>
+            <a href="https://github.com/arnoldgomes207-ui/my-portfolio" target="_blank" rel="noopener">Source code</a>
           </div>
-          <div class="skills-orbs reveal-right">
-            <h3 class="skills-subtitle">Tools & Workflow</h3>
-            <div class="orb-grid">
-              <div class="orb-item" data-level="Expert">
-                <div class="orb"><span>Git</span></div>
-              </div>
-              <div class="orb-item" data-level="Intermediate">
-              <div class="orb"><span>CSS</span></div>
-              </div>
+        </article>
 
-            <div class="orb-item" data-level="Beginner">
-            <div class="orb"><span>JavaScript</span></div>
-            </div>
-
-            <div class="orb-item" data-level="Intermediater">
-            <div class="orb"><span>Python</span></div>
-            </div>
-
-            <div class="orb-item" data-level="Intermediater">
-            <div class="orb"><span>C</span></div>
-            </div>
-              </div>
-            </div>
+        <article class="project-card">
+          <h3>Project Two</h3>
+          <p>Coastal Runner : Electric OS is a high-octane cyberpunk web racing game. Built with vanilla JS, advanced
+            CSS3 glassmorphism, and a Python/Flask backend."</p>
+          <div class="project-links">
+            <a href="https://arnoldgomes207-ui.github.io/car_game_project/" target="_blank" rel="noopener">Live demo</a>
+            <a href="https://github.com/arnoldgomes207-ui/car_game_project" target="_blank" rel="noopener">Source
+              code</a>
           </div>
-        </div>
+        </article>
+
+        <!-- <article class="project-card">
+          <h3>Project Three</h3>
+          <p>A short description of this project — what it does and the problem it solves.</p>
+          <div class="project-links">
+            <a href="#" target="_blank" rel="noopener">Live demo</a>
+            <a href="#" target="_blank" rel="noopener">Source code</a>
+          </div>
+        </article> -->
       </div>
+      <!-- <p class="project-note">Replace these three cards with your real projects — title, one-line
+        description, and links to the live demo and source code.</p> -->
     </section>
 
-    <!-- ░░ PROJECTS ░░ -->
-    <section id="projects" class="projects section" aria-label="Projects section">
-      <div class="container">
-        <div class="section-header reveal-up">
-          <span class="section-tag">// 03</span>
-          <h2 class="section-title">Selected Work</h2>
-        </div>
-
-        <!-- Filter Tabs -->
-        <div class="filter-tabs reveal-up" role="tablist" aria-label="Project categories">
-          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
-          <button class="filter-btn" data-filter="web" role="tab" aria-selected="false">Web App</button>
-          <button class="filter-btn" data-filter="mobile" role="tab" aria-selected="false">Mobile</button>
-          <button class="filter-btn" data-filter="design" role="tab" aria-selected="false">Design</button>
-        </div>
-
-        <!-- Project Grid -->
-        <div class="projects-grid" id="projects-grid">
-
-          <article class="project-card reveal-up" data-category="web" tabindex="0" aria-label="Accident Detection and Tracking System project">
-            <div class="project-img">
-              <div class="project-img-bg bg-1"></div>
-              <div class="project-overlay">
-                <button class="project-view-btn" data-project="0">View Details</button>
-              </div>
-            </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-cat">Web App</span>
-                <span class="project-year">2026</span>
-              </div>
-              <h3 class="project-title">Accident Detection & Tracking</h3>
-              <p class="project-desc">A safety-focused system utilizing a 10-second warning timer, location fetching, and automated SMS alerts via Twilio for emergency response.</p>
-              <div class="project-tech">
-                <span>Python</span><span>Flask</span><span>Twilio API</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="plink" aria-label="Live demo">↗ Live</a>
-                <a href="#" class="plink" aria-label="GitHub">⌥ Code</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- <article class="project-card reveal-up" data-category="mobile" tabindex="0" aria-label="Pulse project">
-            <div class="project-img">
-              <div class="project-img-bg bg-2"></div>
-              <div class="project-overlay">
-                <button class="project-view-btn" data-project="1">View Details</button>
-              </div>
-            </div> -->
-            <!-- <div class="project-body">
-              <div class="project-meta">
-                <span class="project-cat">Mobile</span>
-                <span class="project-year">2024</span>
-              </div>
-              <h3 class="project-title">Pulse</h3>
-              <p class="project-desc">Health & fitness tracker with adaptive ML-driven workout recommendations and biometric integration for iOS and Android.</p>
-              <div class="project-tech">
-                <span>React Native</span><span>TensorFlow</span><span>Firebase</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="plink">↗ Live</a>
-                <a href="#" class="plink">⌥ Code</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up" data-category="design" tabindex="0" aria-label="Stratum design project">
-            <div class="project-img">
-              <div class="project-img-bg bg-3"></div>
-              <div class="project-overlay">
-                <button class="project-view-btn" data-project="2">View Details</button>
-              </div>
-            </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-cat">Design System</span>
-                <span class="project-year">2023</span>
-              </div>
-              <h3 class="project-title">Stratum UI</h3>
-              <p class="project-desc">An open-source design system with 120+ components, full dark/light mode, accessible by default, and rich documentation.</p>
-              <div class="project-tech">
-                <span>TypeScript</span><span>Storybook</span><span>CSS Vars</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="plink">↗ Live</a>
-                <a href="#" class="plink">⌥ Code</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up" data-category="web" tabindex="0" aria-label="Void analytics project">
-            <div class="project-img">
-              <div class="project-img-bg bg-4"></div>
-              <div class="project-overlay">
-                <button class="project-view-btn" data-project="3">View Details</button>
-              </div>
-            </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-cat">Web App</span>
-                <span class="project-year">2023</span>
-              </div>
-              <h3 class="project-title">Void Analytics</h3>
-              <p class="project-desc">Privacy-first web analytics platform with no cookies, GDPR-compliant by design, featuring beautiful real-time dashboards.</p>
-              <div class="project-tech">
-                <span>Go</span><span>ClickHouse</span><span>React</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="plink">↗ Live</a>
-                <a href="#" class="plink">⌥ Code</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up" data-category="web" tabindex="0" aria-label="Echo chat project">
-            <div class="project-img">
-              <div class="project-img-bg bg-5"></div>
-              <div class="project-overlay">
-                <button class="project-view-btn" data-project="4">View Details</button>
-              </div>
-            </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-cat">Web App</span>
-                <span class="project-year">2022</span>
-              </div>
-              <h3 class="project-title">Echo</h3>
-              <p class="project-desc">End-to-end encrypted messaging with disappearing messages, group spaces, and zero data retention on servers.</p>
-              <div class="project-tech">
-                <span>Node.js</span><span>WebRTC</span><span>MongoDB</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="plink">↗ Live</a>
-                <a href="#" class="plink">⌥ Code</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal-up" data-category="design" tabindex="0" aria-label="Prism generative art project">
-            <div class="project-img">
-              <div class="project-img-bg bg-6"></div>
-              <div class="project-overlay">
-                <button class="project-view-btn" data-project="5">View Details</button>
-              </div>
-            </div>
-            <div class="project-body">
-              <div class="project-meta">
-                <span class="project-cat">Generative Art</span>
-                <span class="project-year">2022</span>
-              </div>
-              <h3 class="project-title">Prism</h3>
-              <p class="project-desc">Interactive generative art generator using noise algorithms and particle physics to create unique, exportable art pieces.</p>
-              <div class="project-tech">
-                <span>WebGL</span><span>GLSL</span><span>Canvas API</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="plink">↗ Live</a>
-                <a href="#" class="plink">⌥ Code</a>
-              </div>
-            </div>
-          </article> -->
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ░░ PROJECT MODAL ░░ -->
-    <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-label="Project details" hidden>
-      <div class="modal-backdrop" id="modal-backdrop"></div>
-      <div class="modal-box glass">
-        <button class="modal-close" id="modal-close" aria-label="Close modal">✕</button>
-        <div class="modal-content" id="modal-content"></div>
-      </div>
-    </div>
-
-    <!-- ░░ EXPERIENCE ░░ -->
-    <section id="experience" class="experience section" aria-label="Experience section">
-      <div class="container">
-        <div class="section-header reveal-up">
-          <span class="section-tag">// 04</span>
-          <h2 class="section-title">Experience</h2>
-        </div>
-        <div class="timeline">
-
-          <!-- <div class="timeline-item reveal-up">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2022 — Present</div>
-            <div class="timeline-card glass">
-              <div class="tcard-header">
-                <h3>Senior Frontend Engineer</h3>
-                <span class="tcard-company">Vercel</span>
-              </div>
-              <p>Leading the design systems team, architecting the next generation of component libraries used by 200K+ developers worldwide. Pioneered edge-rendering performance optimizations reducing TTFB by 40%.</p>
-              <div class="tcard-tags">
-                <span>Next.js</span><span>Turborepo</span><span>Edge Runtime</span>
-              </div>
-            </div>
-          </div> -->
-
-          <div class="timeline-item reveal-up">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2025 — 2026</div>
-            <div class="timeline-card glass">
-              <div class="tcard-header">
-                <h3>Full-Stack Developer</h3>
-                <span class="tcard-company">Linear</span>
-              </div>
-              <p>Built core product features for the project management platform. Implemented real-time syncing engine and keyboard-first navigation system that became a flagship feature.</p>
-              <div class="tcard-tags">
-                <span>HTML</span><span>CSS</span><span>JavaScript</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- <div class="timeline-item reveal-up">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2019 — 2020</div>
-            <div class="timeline-card glass"> -->
-              <!-- <div class="tcard-header">
-                <h3>UI Engineer</h3>
-                <span class="tcard-company">Figma (Contract)</span>
-              </div>
-              <p>Contributed to the prototyping engine and built internal tooling for the design team. Developed a plugin that became one of the top 10 most-used community plugins.</p>
-              <div class="tcard-tags">
-                <span>TypeScript</span><span>WebAssembly</span><span>Canvas</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal-up">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2018 — 2019</div>
-            <div class="timeline-card glass">
-              <div class="tcard-header"> -->
-                <!-- <h3>Frontend Developer</h3>
-                <span class="tcard-company">Startup (Seed)</span>
-              </div>
-              <p>First engineering hire at an ed-tech startup. Built the entire frontend from scratch, scaling from 0 to 50K users. Wore every hat from dev to design to DevOps.</p>
-              <div class="tcard-tags">
-                <span>Vue.js</span><span>Firebase</span><span>Stripe</span> -->
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ░░ CONTACT ░░ -->
-    <section id="contact" class="contact section" aria-label="Contact section">
-      <div class="container">
-        <div class="section-header reveal-up">
-          <span class="section-tag">// 05</span>
-          <h2 class="section-title">Get In Touch</h2>
-        </div>
-        <div class="contact-grid">
-          <div class="contact-left reveal-left">
-            <p class="contact-lead">Have a project in mind, or just want to connect? My inbox is always open.</p>
-            <div class="contact-info">
-              <a href="mailto:arnoldgomes207@email.com" class="contact-item">
-                <span class="ci-icon">✉</span>
-                <span>arnoldgomes207@email.com</span>
-              </a>
-              <div class="contact-item">
-                <span class="ci-icon">⌖</span>
-                <span>mangalore, bantwal</span>
-              </div>
-            </div>
-            <div class="social-links">
-              <a href="#" class="social-btn" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              </a>
-              <a href="#" class="social-btn" aria-label="Twitter/X">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              </a>
-              <a href="#" class="social-btn" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </a>
-              <a href="#" class="social-btn" aria-label="Dribbble">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.017-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.816zm-11.62-2.073c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855zm-2.42-8.955c.46.008 4.683.026 9.477-1.248-1.698-3.018-3.53-5.558-3.8-5.928-2.868 1.35-5.01 3.99-5.676 7.176zM9.6 2.052c.282.38 2.145 2.914 3.822 6 3.645-1.365 5.19-3.44 5.373-3.702-1.81-1.61-4.19-2.586-6.795-2.586-.477 0-.946.03-1.4.09zm10.335 3.483c-.218.29-1.935 2.493-5.724 4.04.24.49.47.985.68 1.486.08.18.15.36.22.53 3.41-.43 6.8.26 7.14.33-.02-2.42-.88-4.64-2.31-6.386z"/></svg>
-              </a>
-            </div>
-          </div>
-          <div class="contact-right reveal-right">
-            <form id="contact-form" novalidate aria-label="Contact form">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" id="name" name="name" placeholder="John Doe" autocomplete="name" />
-                  <span class="form-error" id="name-error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" placeholder="john@example.com" autocomplete="email" />
-                  <span class="form-error" id="email-error"></span>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Project inquiry..." />
-                <span class="form-error" id="subject-error"></span>
-              </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."></textarea>
-                <span class="form-error" id="message-error"></span>
-              </div>
-              <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
-                <span class="btn-text">Send Message</span>
-                <span class="btn-arrow">→</span>
-              </button>
-              <div class="form-success" id="form-success" hidden>
-                <span>✓</span> Message sent! I'll get back to you soon.
-              </div>
-            </form>
-          </div>
+    <!-- Contact -->
+    <section id="contact">
+      <div class="contact">
+        <span class="text-grey">get in touch</span>
+        <h2>Connect with me</h2>
+        <p>Feel free to reach out for collaborations, project discussions, or developer networking.</p>
+        <div class="button-group">
+          <a href="https://linkedin.com/in/arnold-gomes-1b7354384" target="_blank" rel="noopener"
+            class="btn btn-primary">LinkedIn</a>
+          <a href="https://github.com/arnoldgomes207-ui" target="_blank" rel="noopener"
+            class="btn btn-secondary">GitHub</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ░░ FOOTER ░░ -->
-  <footer id="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="nav-logo"><span class="logo-bracket">[</span>AM<span class="logo-bracket">]</span></span>
-          <p>Building the future, one commit at a time.</p>
-        </div>
-        <div class="footer-links">
-          <a href="#about">About</a>
-          <a href="#projects">Work</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <p class="footer-copy">© 2026 Arnold J Gomes. Crafted with intention.</p>
+  <footer>
+    <div class="flex">
+      <div class="first">
+        <h3>Arnold's Developer Portfolio</h3>
+        <p class="footer-tagline">Information Science engineer &amp; fullstack web developer.</p>
       </div>
+
+      <div class="second">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact me</a></li>
+        </ul>
+      </div>
+
+      <div class="third">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://linkedin.com/in/arnold-gomes-1b7354384" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/arnoldgomes207-ui" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="resume.png" download>Resume</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-rights">
+      Copyright &#169; <span id="year"></span> Arnold's Developer Portfolio — all rights reserved
     </div>
   </footer>
 
-  <!-- ░░ BACK TO TOP ░░ -->
-  <button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+  <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+  <script>
+    // Typing effect
+    var typed = new Typed('#element', {
+      strings: ['Information Science engineer', 'fullstack web developer.'],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 1500,
+      loop: true
+    });
 
-  <script src="script.js"></script>
+    // Mobile nav toggle
+    var navToggle = document.getElementById('navToggle');
+    var navMenu = document.getElementById('navMenu');
+    navToggle.addEventListener('click', function () {
+      var isOpen = navMenu.classList.toggle('open');
+      navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close mobile menu after clicking a link
+    navMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navMenu.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', false);
+      });
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
+
 </html>
